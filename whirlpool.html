@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connected appliances at Whirlpool · Ricardo López Novelo</title>
+<meta name="description" content="UX for connected kitchen and home appliances at Whirlpool. A process case study, because every screen is under NDA.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="site.js" defer></script>
+<script src="editor.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head shell">
+  <a class="name" href="index.html">Ricardo López Novelo</a>
+  <nav aria-label="Site">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="Ricardo-Lopez-Novelo-CV.pdf" aria-label="CV (PDF)">CV</a>
+    <a href="mailto:ricardonovelo97@gmail.com">Email</a>
+  </nav>
+</header>
+
+<main id="main" class="shell">
+
+  <div class="case-hero">
+    <p class="eyebrow">Whirlpool Corporation &nbsp;·&nbsp; November 2024 to present</p>
+    <h1>Connected appliances at Whirlpool</h1>
+    <p class="standfirst">UX for connected kitchen and home appliances across consumer mobile apps. This case study is about process, because every screen is under NDA.</p>
+  </div>
+
+  <dl class="meta">
+    <div><dt>Role</dt><dd>User Experience Designer</dd></div>
+    <div><dt>Area</dt><dd>Connected appliances, kitchen and home</dd></div>
+    <div><dt>Timeline</dt><dd>November 2024 to present</dd></div>
+    <div><dt>With</dt><dd>Product managers and engineers</dd></div>
+  </dl>
+
+  <div class="prose">
+    <h2>Context</h2>
+    <p>I've been a User Experience Designer at Whirlpool since November 2024. I work on connected appliances across the company's consumer mobile apps. Kitchen and home, both sides.</p>
+    <p class="nda">One thing up front: everything visual from this role is under NDA. There are no screenshots and no product UI on this page. What I can share is the shape of the work.</p>
+
+    <h2>What the work is actually like</h2>
+    <p>A connected appliance is a state machine that lives in someone's house. It can be idle, running, paused, done, or suddenly unreachable. My job is to map those states and design the multi step flows that carry people through them on a phone. That includes the edge cases where the device and the app stop agreeing about what is happening.</p>
+    <p>I work through what each state means, and what the app should do when a flow breaks partway through, with product managers and engineers.</p>
+  </div>
+
+  <div class="diagram" role="img" aria-label="Abstract device state map: idle, running, paused, done, unreachable, with edge case branches">
+    <svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif" font-size="13" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5">
+        <rect x="30" y="95" width="110" height="42" rx="21"/>
+        <rect x="205" y="95" width="110" height="42" rx="21"/>
+        <rect x="380" y="30" width="110" height="42" rx="21"/>
+        <rect x="380" y="160" width="110" height="42" rx="21"/>
+        <rect x="580" y="95" width="110" height="42" rx="21"/>
+        <rect x="205" y="180" width="120" height="40" rx="20" stroke-dasharray="5 4"/>
+      </g>
+      <g fill="currentColor" text-anchor="middle">
+        <text x="85" y="121">idle</text>
+        <text x="260" y="121">running</text>
+        <text x="435" y="56">paused</text>
+        <text x="435" y="186">done</text>
+        <text x="635" y="121">next run</text>
+        <text x="265" y="205" opacity="0.65">unreachable</text>
+      </g>
+      <g fill="none" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5">
+        <path d="M 140 116 L 205 116"/>
+        <path d="M 315 106 C 350 92 350 65 380 55"/>
+        <path d="M 490 55 C 530 65 545 92 580 106"/>
+        <path d="M 315 126 C 350 140 350 172 380 178"/>
+        <path d="M 490 181 C 535 172 550 135 580 122"/>
+        <path d="M 260 137 L 262 180" stroke-dasharray="4 4"/>
+      </g>
+      <text x="150" y="230" fill="currentColor" opacity="0.7" font-size="12">edge case: the device disappears mid flow</text>
+    </svg>
+  </div>
+
+  <div class="prose">
+    <h2>Design standards work</h2>
+    <p>I established the team's design standards, workflows, and best practices. It's unglamorous work: write a decision down once and it doesn't have to be reargued from scratch.</p>
+    <p>I also built <a href="demos.html">Demos</a>, an internal tool the team uses to test high fidelity concepts on real devices. It has its own case study.</p>
+
+    <h2>Want more detail?</h2>
+    <p>Since the screens can't live on a public page, I'm happy to talk through the work in a conversation: how I map states, how flows get stress tested against their edge cases, and the reasoning behind the decisions. If you're hiring, <a href="mailto:ricardonovelo97@gmail.com">ask me</a>.</p>
+  </div>
+
+  <nav class="next" aria-label="Next project">
+    <a href="metrozone.html">
+      <div>
+        <p class="label">Next project</p>
+        <h3>MetroZone: redesigning T-Mobile's Android content app</h3>
+      </div>
+      <span class="arrow" aria-hidden="true">&rarr;</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer class="site-foot shell">
+  <h2>Have a role or a project in mind? <a href="mailto:ricardonovelo97@gmail.com">ricardonovelo97@gmail.com</a></h2>
+  <div class="foot-links">
+    <a href="https://www.linkedin.com/in/ricardo-nlo/">LinkedIn</a>
+    <a href="https://github.com/ricardonovelot">GitHub</a>
+    <a href="https://www.behance.net/ricardolopezn">Behance</a>
+    <a href="Ricardo-Lopez-Novelo-CV.pdf">CV (PDF)</a>
+  </div>
+  <p class="smallprint">Designed and built in Monterrey. No trackers, no cookies. &copy; 2026 Ricardo López Novelo.</p>
+</footer>
+
+</body>
+</html>

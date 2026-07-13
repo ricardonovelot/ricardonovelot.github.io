@@ -1,329 +1,124 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Compra papeleria de calidad" />
-    <meta name="robots" content="index,follow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jetpens</title>
-    <link rel="stylesheet" href="./css/style.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ricardo López Novelo · Product Designer</title>
+<meta name="description" content="Product designer in Monterrey, Mexico who also builds what he designs. UX for connected appliances at Whirlpool, plus June, a solo built iOS photo journal.">
+<meta property="og:title" content="Ricardo López Novelo · Product Designer">
+<meta property="og:description" content="Product designer who also builds what he designs. Connected appliances at Whirlpool, June, Demos, MetroZone.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ricardonovelot.github.io/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="site.js" defer></script>
+<script src="editor.js" defer></script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-   <header>
+<header class="site-head shell">
+  <a class="name" href="index.html" aria-current="page">Ricardo López Novelo</a>
+  <nav aria-label="Site">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="Ricardo-Lopez-Novelo-CV.pdf" aria-label="CV (PDF)">CV</a>
+    <a href="mailto:ricardonovelo97@gmail.com">Email</a>
+  </nav>
+</header>
 
-    <div class="top-header">
-        <div>
-            <img 
-            class="image-logo"
-            src="./pics/Logo.png" 
-            alt="Imagen de logo"
-            />
-        </div>
+<main id="main">
 
-        <div class="main-input">
-            <div>
-            <input 
-            class="main-input-container" 
-            type="text"
-            /> 
-            </div>
-            <div>
-            <img 
-            class="search-icon"
-            src="./Icons/Icon-search.png" 
-            alt="Icono de busqueda"
-            />   
-            </div>         
-        </div>
+  <section class="hero shell">
+    <h1 class="reveal">I design product experiences. Then I build them.</h1>
+    <p class="standfirst reveal">Right now that means <strong>connected kitchen and home appliance apps at Whirlpool</strong> by day, and <strong>June</strong>, an iOS photo journal I'm shipping solo, the rest of the time.</p>
+    <p class="now reveal"><b>Now:</b> User Experience Designer, Whirlpool Corporation &nbsp;·&nbsp; Monterrey, Mexico</p>
+  </section>
 
-        <div>
-            <a href="register.html">
-            <button 
-            class="system-actions"
-            >
-            Register
-            </button>
-            </a>
-            <div>
+  <section id="work" class="shell">
+    <h2 class="label reveal">Selected work</h2>
+    <ul class="worklist">
+      <li class="workrow reveal">
+        <a href="june.html">
+          <span class="num">01</span>
+          <div>
+            <h3>June</h3>
+            <p>A photo journal for iPhone that takes the scroll mechanics of social apps and points them at your own life. Designed and built solo in Swift and UIKit.</p>
+            <p class="tags">iOS &nbsp;·&nbsp; Solo design and build &nbsp;·&nbsp; 2025 to present</p>
+          </div>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+      <li class="workrow reveal">
+        <a href="demos.html">
+          <span class="num">02</span>
+          <div>
+            <h3>Demos</h3>
+            <p>An internal iOS tool for the design team at Whirlpool: high fidelity simulations, side by side variant comparisons, and brand theme switching on real devices.</p>
+            <p class="tags">Internal tool &nbsp;·&nbsp; iOS &nbsp;·&nbsp; 2025 to present</p>
+          </div>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+      <li class="workrow reveal">
+        <a href="whirlpool.html">
+          <span class="num">03</span>
+          <div>
+            <h3>Connected appliances at Whirlpool</h3>
+            <p>UX for connected kitchen and home appliances. A process case study, because every screen is under NDA.</p>
+            <p class="tags">Whirlpool Corporation &nbsp;·&nbsp; 2024 to present</p>
+          </div>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+      <li class="workrow reveal">
+        <a href="metrozone.html">
+          <span class="num">04</span>
+          <div>
+            <h3>MetroZone</h3>
+            <p>I worked on the redesign of T-Mobile's Android content app at Digital Turbine. User satisfaction rose 30% in user testing.</p>
+            <p class="tags">Digital Turbine &nbsp;·&nbsp; Android &nbsp;·&nbsp; 2021 to 2023</p>
+          </div>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    </ul>
+  </section>
 
-            </div>   
-        </div>
-
+  <section id="about" class="about shell">
+    <h2 class="label reveal">About</h2>
+    <div class="cols">
+      <div class="reveal">
+        <p>Since November 2024 I've been a User Experience Designer at Whirlpool, working on the consumer mobile apps for connected kitchen and home appliances. Before that I was a product designer at Digital Turbine, where I worked on the MetroZone redesign for T-Mobile and maintained a design system of several hundred UI components. I've also freelanced for RNDVU, a social event planning app.</p>
+        <p>I studied computer science and audiovisual production at Universidad Autónoma de Nuevo León, and that mix still shows in how I work: comfortable in Figma, equally comfortable in Xcode.</p>
+      </div>
+      <dl class="facts reveal">
+        <dt>Education</dt>
+        <dd>BS Computer Science, UANL</dd>
+        <dd>BA Audiovisual Language and Production, UANL</dd>
+        <dt>Code</dt>
+        <dd>Swift (UIKit, SwiftUI), CoreData, CloudKit, some HTML and CSS</dd>
+        <dt>Tools</dt>
+        <dd>Figma, FigJam, Xcode, Adobe CC, TestFlight, Claude Code and other AI tools daily</dd>
+      </dl>
     </div>
+  </section>
 
-    <nav>
-        <ul class="nav-main-menu">
-            <li>
-                <a href="">Pens</a>
-            </li>
-            <li>
-                <a href="">Pencils</a>
-            </li>
-            <li>
-                <a href="">Cases & Bags</a>
-            </li>
-            <li>
-                <a href="">Arts & Crafts</a>
-            </li>
-            <li>
-                <a href="">More</a>
-            </li>
-        </ul>
-    </nav>
-   </header>
+</main>
 
-   <main>
-    
-    <section class="main-horitonal-section">
-    <img
-        src="./Icons/Icon-arrow-big-left.png"
-    />  
-    <picture class="carousel-card">
-        <img
-        src="./pics/Carousel-1.png"
-        />
-    </picture>
-    <img
-        src="./Icons/Icon-arrow-big-right.png"
-    />  
-    </section>
-    
-    <h1>Top Selling Products &#x1F6CD;</h1>
-    
-    <section class="main-horitonal-section">
-
-<div class="product-card">
-    <picture>
-        <img
-        src="./pics/Product-0.jpg"
-        />
-    </picture>
-    <div class="product-title">Tactile Turn Side Click Pen - Brass</div>
-    <div class="product-bottom-section">
-        <img
-          src="./Icons/Icon-cart-blue.png"
-        />
-        <img
-          src="./Icons/Icon-heart.png"
-        />
-    </div>
-</div>
-
-<div class="product-card">
-    <picture>
-        <img
-        src="./pics/Product-1.jpg"
-        />
-    </picture>
-    <div class="product-title">Tactile Turn Side Click Pen - Brass</div>
-    <div class="product-bottom-section">
-        <img
-          src="./Icons/Icon-cart-blue.png"
-        />
-        <img
-          src="./Icons/Icon-heart.png"
-        />
-    </div>
-</div>
-
-<div class="product-card">
-    <picture>
-        <img
-        src="./pics/Product-2.jpg"
-        />
-    </picture>
-    <div class="product-title">Tactile Turn Side Click Pen - Brass</div>
-    <div class="product-bottom-section">
-        <img
-          src="./Icons/Icon-cart-blue.png"
-        />
-        <img
-          src="./Icons/Icon-heart.png"
-        />
-    </div>
-</div>
-
-<div class="product-card">
-    <picture>
-        <img
-        src="./pics/Product-3.jpg"
-        />
-    </picture>
-    <div class="product-title">Tactile Turn Side Click Pen - Brass</div>
-    <div class="product-bottom-section">
-        <img
-          src="./Icons/Icon-cart-blue.png"
-        />
-        <img
-          src="./Icons/Icon-heart.png"
-        />
-    </div>
-</div>
-
-<div class="product-card">
-    <picture>
-        <img
-        src="./pics/Product-4.jpg"
-        />
-    </picture>
-    <div class="product-title">Tactile Turn Side Click Pen - Brass</div>
-    <div class="product-bottom-section">
-        <img
-          src="./Icons/Icon-cart-blue.png"
-        />
-        <img
-          src="./Icons/Icon-heart.png"
-        />
-    </div>
-</div>
-    </section>
-    
-    <h1>Our Brands &#x1F91D;</h1>
-
-<section class="main-horitonal-section">
-
-<div class="Brand-card">
-    <img
-        src="./pics/Brand-01.jpg"
-    />
-</div>
-
-<div class="Brand-card">
-    <img
-        src="./pics/Brand-02.jpg"
-    />
-</div>
-
-<div class="Brand-card">
-    <img
-        src="./pics/Brand-03.jpg"
-    />
-</div>
-
-<div class="Brand-card">
-    <img
-        src="./pics/Brand-04.jpg"
-    />
-</div>
-
-
-    </section>
-
-    <h1>Top Categories &#xfe0f;</h1>
-
-
-<section class="main-horitonal-section">
-
-<div class="categorie-card">
-    <img
-        src="./pics/Categorie-01.jpg"
-    />
-    <div class="categorie-title">Art & Craft</div>
-</div>
-
-<div class="categorie-card">
-    <img
-        src="./pics/Categorie-02.jpg"
-    />
-    <div class="categorie-title">Water Colors</div>
-</div>
-
-<div class="categorie-card">
-    <img
-        src="./pics/Categorie-03.jpg"
-    />
-    <div class="categorie-title">Colors</div>
-</div>
-
-<div class="categorie-card">
-    <img
-        src="./pics/Categorie-04.jpg"
-    />
-    <div class="categorie-title">Profesional</div>
-</div>
-
-
-    </section>
-
-   </main>
-   
-   <footer>
-       <nav class="footer-horitonal-section">
-        <ul class="nav-vertical-list">
-            <li>
-                <a href="">Pens</a>
-            </li>
-            <li>
-                <a href="">Pencils</a>
-            </li>
-            <li>
-                <a href="">Cases & Bags</a>
-            </li>
-            <li>
-                <a href="">Arts & Crafts</a>
-            </li>
-            <li>
-                <a href="">More</a>
-            </li>
-
-        </ul>
-        
-        <ul class="nav-vertical-list">
-            <li>
-                <a href="">Pens</a>
-            </li>
-            <li>
-                <a href="">Pencils</a>
-            </li>
-            <li>
-                <a href="">Cases & Bags</a>
-            </li>
-            <li>
-                <a href="">Arts & Crafts</a>
-            </li>
-            <li>
-                <a href="">More</a>
-            </li>
-
-        </ul>
-        
-        <ul class="nav-vertical-list">
-            <li>
-                <a href="">Pens</a>
-            </li>
-            <li>
-                <a href="">Pencils</a>
-            </li>
-            <li>
-                <a href="">Cases & Bags</a>
-            </li>
-            <li>
-                <a href="">Arts & Crafts</a>
-            </li>
-            <li>
-                <a href="">More</a>
-            </li>
-        </ul>
-
-        <div>
-        <img
-        class="payments"
-        src="./pics/payments.png">
-        </div>
-    </nav>
-   </footer>
-<script type="module" src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js">
-</script>
-
-<script type="module"  src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js">
-</script>
-
-<script type="module" src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js">
-</script>
-
+<footer class="site-foot shell">
+  <h2 class="reveal">Have a role or a project in mind? <a href="mailto:ricardonovelo97@gmail.com">ricardonovelo97@gmail.com</a></h2>
+  <div class="foot-links">
+    <a href="https://www.linkedin.com/in/ricardo-nlo/">LinkedIn</a>
+    <a href="https://github.com/ricardonovelot">GitHub</a>
+    <a href="https://www.behance.net/ricardolopezn">Behance</a>
+    <a href="Ricardo-Lopez-Novelo-CV.pdf">CV (PDF)</a>
+  </div>
+  <p class="smallprint">Designed and built in Monterrey, where it's <span id="mty-time">just about now</span>. No trackers, no cookies. &copy; 2026 Ricardo López Novelo.</p>
+</footer>
 
 </body>
-
-
 </html>
