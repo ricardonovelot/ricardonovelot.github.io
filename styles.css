@@ -209,6 +209,8 @@ img, video { max-width: 100%; display: block; }
 @media (max-width: 640px) { .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 .prose { max-width: 68ch; padding-block: 18px 30px; }
+.prose.sec { padding-block: 0; }
+.prose.sec:last-of-type { padding-bottom: 30px; }
 .prose h2 {
   margin-top: 52px;
   font-size: 0.82rem;
