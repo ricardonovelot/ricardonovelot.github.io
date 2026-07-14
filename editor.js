@@ -127,6 +127,13 @@
       if (el.getAttribute('contenteditable') === 'true') return;
       el.setAttribute('contenteditable', 'true');
       el.addEventListener('input', function () { dirty = true; });
+      // Paste plain text only. Pasting from a browser or a doc otherwise drags
+      // in fonts and hardcoded colors (white text that vanishes in light mode).
+      el.addEventListener('paste', function (e) {
+        e.preventDefault();
+        var text = (e.clipboardData || window.clipboardData).getData('text/plain');
+        document.execCommand('insertText', false, text);
+      });
     });
   }
 
