@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Demos · Ricardo López Novelo</title>
 <meta name="description" content="An internal iOS tool for the design team at Whirlpool: high fidelity simulations, side by side variant comparisons, and brand theme switching on real devices.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script src="site.js" defer></script>
-<script src="editor.js" defer></script>
+<script src="site.js" defer=""></script>
+<script src="editor.js" defer=""></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -40,17 +39,9 @@
     <div><dt>Users</dt><dd>The Whirlpool UX design team</dd></div>
   </dl>
 
-  <figure class="media board reveal">
-    <img src="https://github.com/user-attachments/assets/f539af4e-3784-4082-ad3d-7edf635a5ee1" alt="Overview of Demos and its design system, from the project README" loading="lazy">
-  </figure>
+  
 
-  <div class="prose">
-    <h2>Context</h2>
-    <p>I am a designer on the UX team at Whirlpool. A design can look resolved in a mockup and still feel different the moment it runs on a real device: the timing, the navigation, how a theme reads on an actual screen. Demos exists to close that gap before anything reaches Whirlpool's official apps.</p>
-
-    <h2>What it is</h2>
-    <p>Demos replicates actual product experiences at high fidelity so the team can put concepts on real devices early. That meant building more than screens. It has its own design system architecture and a custom navigation implementation, because a simulation is only convincing if the connective tissue behaves like the real thing. It switches between the brands in Whirlpool's portfolio and their themes, and it can run multiple variants of a design side by side for comparison. Builds go to the team through TestFlight.</p>
-  </div>
+  <div class="prose sec"><h2>Context</h2><p>I am a designer on the UX team at Whirlpool. A design can look resolved in a mockup and still feel different the moment it runs on a real device: the timing, the navigation, how a theme reads on an actual screen. Demos exists to close that gap before anything reaches Whirlpool's official apps.</p></div><div class="prose sec"><h2>What it is</h2><p>Demos replicates actual product experiences at high fidelity so the team can put concepts on real devices early. That meant building more than screens. It has its own design system architecture and a custom navigation implementation, because a simulation is only convincing if the connective tissue behaves like the real thing. It switches between the brands in Whirlpool's portfolio and their themes, and it can run multiple variants of a design side by side for comparison. Builds go to the team through TestFlight.</p></div>
 
   <div class="mediarow shots">
     <figure class="media reveal"><img src="https://github.com/user-attachments/assets/910c419c-3387-4113-9ddb-7efbb82b79a5" alt="Demos app screenshot from the project README" loading="lazy"></figure>
@@ -58,14 +49,7 @@
     <figure class="media reveal"><img src="https://github.com/user-attachments/assets/38d17c2e-7c93-405d-a3d5-20605672bc99" alt="Demos app screenshot from the project README" loading="lazy"></figure>
   </div>
 
-  <div class="prose">
-    <h2>How the team uses it</h2>
-    <p>When a direction is contested, we load the options as variants and compare them on device. Patterns that need to hold across the brand portfolio get flipped through each theme so we can watch where they break. Because Demos behaves like the shipping product, a reaction to it is a reaction to something close to what customers would eventually get, not to a rough stand in. TestFlight keeps distribution simple: install once, get updates as I push them.</p>
-
-    <h2>What building it taught the design side</h2>
-    <p>I sit on the team Demos serves, so I hit every rough edge in my own work before anyone had to report it.</p>
-    <p>Building the design system as code was the biggest lesson. A component library in a design tool tolerates ambiguity. Code doesn't, so every state and naming decision had to actually be made, and that discipline followed me back into regular design work. The tool's job is to answer design questions, not to become a second product to maintain.</p>
-  </div>
+  <div class="prose sec"><h2>How the team uses it</h2><p>When a direction is contested, we load the options as variants and compare them on device. Patterns that need to hold across the brand portfolio get flipped through each theme so we can watch where they break. Because Demos behaves like the shipping product, a reaction to it is a reaction to something close to what customers would eventually get, not to a rough stand in. TestFlight keeps distribution simple: install once, get updates as I push them.</p></div><div class="prose sec"><h2>What building it taught the design side</h2><p>I sit on the team Demos serves, so I hit every rough edge in my own work before anyone had to report it.</p><p>Building the design system as code was the biggest lesson. A component library in a design tool tolerates ambiguity. Code doesn't, so every state and naming decision had to actually be made, and that discipline followed me back into regular design work. The tool's job is to answer design questions, not to become a second product to maintain.</p></div>
 
   <div class="mediarow two">
     <figure class="media reveal"><img src="https://github.com/user-attachments/assets/65633770-4c5d-4980-9277-4fd690174f01" alt="Demos app screenshot from the project README" loading="lazy"></figure>
@@ -75,12 +59,12 @@
   <div class="diagram" role="img" aria-label="Diagram of the Demos design system architecture: tokens and components feed brand themes, navigation, and simulations">
     <svg viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif" font-size="13" aria-hidden="true">
       <g fill="none" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5">
-        <rect x="40" y="30" width="150" height="44" rx="10"/>
-        <rect x="40" y="120" width="150" height="44" rx="10"/>
-        <rect x="300" y="75" width="160" height="44" rx="10"/>
-        <rect x="560" y="20" width="160" height="44" rx="10"/>
-        <rect x="560" y="78" width="160" height="44" rx="10"/>
-        <rect x="560" y="136" width="160" height="44" rx="10"/>
+        <rect x="40" y="30" width="150" height="44" rx="10"></rect>
+        <rect x="40" y="120" width="150" height="44" rx="10"></rect>
+        <rect x="300" y="75" width="160" height="44" rx="10"></rect>
+        <rect x="560" y="20" width="160" height="44" rx="10"></rect>
+        <rect x="560" y="78" width="160" height="44" rx="10"></rect>
+        <rect x="560" y="136" width="160" height="44" rx="10"></rect>
       </g>
       <g fill="currentColor" text-anchor="middle">
         <text x="115" y="57">Design tokens</text>
@@ -91,11 +75,11 @@
         <text x="640" y="163">Simulations</text>
       </g>
       <g fill="none" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5">
-        <path d="M 190 52 C 250 52 250 97 300 97"/>
-        <path d="M 190 142 C 250 142 250 97 300 97"/>
-        <path d="M 460 90 C 515 80 505 42 560 42"/>
-        <path d="M 460 97 L 560 99"/>
-        <path d="M 460 104 C 515 114 505 158 560 158"/>
+        <path d="M 190 52 C 250 52 250 97 300 97"></path>
+        <path d="M 190 142 C 250 142 250 97 300 97"></path>
+        <path d="M 460 90 C 515 80 505 42 560 42"></path>
+        <path d="M 460 97 L 560 99"></path>
+        <path d="M 460 104 C 515 114 505 158 560 158"></path>
       </g>
     </svg>
   </div>
@@ -106,7 +90,7 @@
         <p class="label">Next project</p>
         <h3>Connected appliances at Whirlpool</h3>
       </div>
-      <span class="arrow" aria-hidden="true">&rarr;</span>
+      <span class="arrow" aria-hidden="true">→</span>
     </a>
   </nav>
 
@@ -119,8 +103,9 @@
     <a href="https://github.com/ricardonovelot">GitHub</a>
     <a href="https://www.behance.net/ricardolopezn">Behance</a>
   </div>
-  <p class="smallprint">Designed and built in Monterrey. No trackers, no cookies. &copy; 2026 Ricardo López Novelo.</p>
+  <p class="smallprint">Designed and built in Monterrey. No trackers, no cookies. © 2026 Ricardo López Novelo.</p>
 </footer>
 
-</body>
-</html>
+
+
+</body></html>
