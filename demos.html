@@ -56,33 +56,57 @@
     <figure class="media reveal"><img src="https://github.com/user-attachments/assets/a79ccb57-e27a-4db8-ad26-b4d228e7f08b" alt="Demos app screenshot from the project README" loading="lazy"></figure>
   </div>
 
-  <div class="diagram" role="img" aria-label="Diagram of the Demos design system architecture: tokens and components feed brand themes, navigation, and simulations">
-    <svg viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif" font-size="13" aria-hidden="true">
-      <g fill="none" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5">
-        <rect x="40" y="30" width="150" height="44" rx="10"></rect>
-        <rect x="40" y="120" width="150" height="44" rx="10"></rect>
-        <rect x="300" y="75" width="160" height="44" rx="10"></rect>
-        <rect x="560" y="20" width="160" height="44" rx="10"></rect>
-        <rect x="560" y="78" width="160" height="44" rx="10"></rect>
-        <rect x="560" y="136" width="160" height="44" rx="10"></rect>
+  <div class="diagram" role="img" aria-label="A comparison of two timelines. Without Demos: design, build, ship, and you only find out a design does not work after launch. With Demos: design, then Demos on a real phone, where you find out immediately, before any of it is built and shipped.">
+    <svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif" aria-hidden="true">
+      <g font-size="11" font-weight="640" letter-spacing="1.4" fill="currentColor" opacity="0.55">
+        <text x="0" y="16">WITHOUT DEMOS</text>
+        <text x="0" y="146">WITH DEMOS</text>
       </g>
-      <g fill="currentColor" text-anchor="middle">
-        <text x="115" y="57">Design tokens</text>
-        <text x="115" y="147">Components</text>
-        <text x="380" y="102">System core</text>
-        <text x="640" y="47">Brand themes</text>
-        <text x="640" y="105">Navigation</text>
-        <text x="640" y="163">Simulations</text>
+
+      <g font-size="13" text-anchor="middle">
+        <g fill="none" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.5">
+          <rect x="0" y="32" width="120" height="42" rx="10"/>
+          <rect x="150" y="32" width="120" height="42" rx="10"/>
+          <rect x="300" y="32" width="120" height="42" rx="10"/>
+        </g>
+        <g fill="currentColor">
+          <text x="60" y="58">Design it</text>
+          <text x="210" y="58">Build it</text>
+          <text x="360" y="58">Ship it</text>
+        </g>
+        <g stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5">
+          <path d="M 120 53 L 150 53"/>
+          <path d="M 270 53 L 300 53"/>
+          <path d="M 420 53 L 470 53" stroke-dasharray="4 4"/>
+        </g>
+        <circle cx="482" cy="53" r="6" fill="var(--accent)"/>
+        <text x="558" y="57" fill="var(--accent)" font-weight="600">you find out here</text>
       </g>
-      <g fill="none" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5">
-        <path d="M 190 52 C 250 52 250 97 300 97"></path>
-        <path d="M 190 142 C 250 142 250 97 300 97"></path>
-        <path d="M 460 90 C 515 80 505 42 560 42"></path>
-        <path d="M 460 97 L 560 99"></path>
-        <path d="M 460 104 C 515 114 505 158 560 158"></path>
+
+      <g font-size="13" text-anchor="middle">
+        <g fill="none" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.5">
+          <rect x="0" y="162" width="120" height="42" rx="10"/>
+          <rect x="300" y="162" width="120" height="42" rx="10"/>
+          <rect x="450" y="162" width="120" height="42" rx="10"/>
+        </g>
+        <rect x="150" y="162" width="120" height="42" rx="10" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+        <g fill="currentColor">
+          <text x="60" y="188">Design it</text>
+          <text x="360" y="188">Build it</text>
+          <text x="510" y="188">Ship it</text>
+        </g>
+        <text x="210" y="188" fill="var(--accent)" font-weight="640">Demos</text>
+        <g stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5">
+          <path d="M 120 183 L 150 183"/>
+          <path d="M 270 183 L 300 183"/>
+          <path d="M 420 183 L 450 183"/>
+        </g>
+        <circle cx="210" cy="222" r="6" fill="var(--accent)"/>
+        <text x="210" y="245" fill="var(--accent)" font-weight="600">you find out here</text>
       </g>
     </svg>
   </div>
+  <p class="cap-line">Demos moves the moment you discover a design is wrong to before anything gets built, instead of after it reaches customers.</p>
 
   <nav class="next" aria-label="Next project">
     <a href="whirlpool.html">
