@@ -1,5 +1,12 @@
 // Reveal-on-scroll, staggered. Respects prefers-reduced-motion.
 (function () {
+  // Safety net: nothing on the public site is ever editable. If a stale
+  // contenteditable attribute survives a save, strip it before a visitor can
+  // type into the page. Edit mode re-applies these after this runs.
+  document.querySelectorAll('[contenteditable]').forEach(function (el) {
+    el.removeAttribute('contenteditable');
+  });
+
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var els = document.querySelectorAll('.reveal');
   if (reduce || !('IntersectionObserver' in window)) {

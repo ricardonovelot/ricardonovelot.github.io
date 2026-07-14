@@ -84,7 +84,20 @@
     markEditable();
     addControls();
     injectChrome();
+    suppressLinks();
     document.documentElement.classList.add('rln-edit-on');
+  }
+
+  // While editing, links must not navigate: the work list titles live inside
+  // <a> wrappers, so a click to place the caret would otherwise leave the page.
+  // Cmd/Ctrl+click still opens a link, for checking where it goes.
+  function suppressLinks() {
+    document.addEventListener('click', function (e) {
+      if (!editing) return;
+      if (e.target.closest('.rln-ctl') || e.target.closest('.rln-bar')) return;
+      var a = e.target.closest('a');
+      if (a && !e.metaKey && !e.ctrlKey) e.preventDefault();
+    }, true);
   }
 
   // Split each big .prose container into one .prose.sec per h2 group, so
@@ -237,6 +250,9 @@
   function cleanClone(el) {
     var clone = el.cloneNode(true);
     clone.querySelectorAll('.rln-ctl, .rln-bar').forEach(function (n) { n.remove(); });
+    // Editor state must never reach the published file: a persisted
+    // contenteditable would let any visitor type into the page.
+    clone.removeAttribute('contenteditable');
     clone.querySelectorAll('[contenteditable]').forEach(function (n) { n.removeAttribute('contenteditable'); });
     clone.querySelectorAll('.rln-block').forEach(function (n) { n.classList.remove('rln-block', 'rln-flash'); });
     clone.querySelectorAll('.reveal.in').forEach(function (n) { n.classList.remove('in'); });
@@ -274,7 +290,17 @@
       var liveFoot = document.querySelector('.site-foot');
       if (liveMain && doc.querySelector('main')) doc.querySelector('main').innerHTML = cleanClone(liveMain).innerHTML;
       if (liveFoot && doc.querySelector('.site-foot')) doc.querySelector('.site-foot').innerHTML = cleanClone(liveFoot).innerHTML;
+      // Last line of defence before anything is written to the repo.
+      doc.querySelectorAll('[contenteditable], .rln-ctl, .rln-bar, .rln-block').forEach(function (n) {
+        if (n.classList.contains('rln-ctl') || n.classList.contains('rln-bar')) { n.remove(); return; }
+        n.removeAttribute('contenteditable');
+        n.classList.remove('rln-block', 'rln-flash');
+        if (!n.getAttribute('class')) n.removeAttribute('class');
+      });
       var out = '<!DOCTYPE html>\n' + doc.documentElement.outerHTML + '\n';
+      if (out.indexOf('contenteditable') !== -1) {
+        throw new Error('internal: editor state leaked into the page; save aborted');
+      }
       var b64 = btoa(Array.from(new TextEncoder().encode(out), function (b) { return String.fromCharCode(b); }).join(''));
       return fetch(api, {
         method: 'PUT', headers: headers,
