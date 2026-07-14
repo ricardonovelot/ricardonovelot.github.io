@@ -34,7 +34,7 @@ Good sources you already have:
 - Screenshots in the Demos GitHub repo
 - The MetroZONE visuals on your Behance
 
-## Updating the CV
+## Editing the site
 
-`Ricardo-Lopez-Novelo-CV.pdf` is the neutral CV linked in the header.
-Regenerate or replace it whenever you update your CV.
+Press Cmd+Shift+E on the live site (or add `?edit` to the URL) to edit text
+and move, add, or delete sections in place. Saving commits to this repo.

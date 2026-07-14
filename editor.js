@@ -244,9 +244,16 @@
       if (!n.getAttribute('style')) n.removeAttribute('style');
       if (!n.getAttribute('class')) n.removeAttribute('class');
     });
-    // Drop paragraphs that were emptied out.
-    clone.querySelectorAll('p').forEach(function (p) {
-      if (!p.textContent.trim() && !p.querySelector('img,video,a')) p.remove();
+    // Drop anything that was emptied out: paragraphs, headings, list items,
+    // then lists and sections left with nothing in them.
+    clone.querySelectorAll('p, h1, h2, h3, li, dd, dt').forEach(function (n) {
+      if (!n.textContent.trim() && !n.querySelector('img,video,a')) n.remove();
+    });
+    clone.querySelectorAll('ul, ol').forEach(function (l) {
+      if (!l.children.length) l.remove();
+    });
+    clone.querySelectorAll('.prose.sec').forEach(function (s) {
+      if (!s.textContent.trim() && !s.querySelector('img,video')) s.remove();
     });
     return clone;
   }

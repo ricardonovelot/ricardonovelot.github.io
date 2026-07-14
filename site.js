@@ -20,16 +20,4 @@
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     els.forEach(function (el) { io.observe(el); });
   }
-
-  // Local time in Monterrey, for the footer.
-  var t = document.getElementById('mty-time');
-  if (t) {
-    var tick = function () {
-      t.textContent = new Intl.DateTimeFormat('en-US', {
-        hour: 'numeric', minute: '2-digit', timeZone: 'America/Monterrey',
-      }).format(new Date());
-    };
-    tick();
-    setInterval(tick, 30000);
-  }
 })();
