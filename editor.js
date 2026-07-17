@@ -17,6 +17,7 @@
   var token = null;
   var editing = false;
   var dirty = false;
+  var baseSha = null; // repo version this edit session started from
 
   function currentFile() {
     var p = location.pathname.replace(/^\//, '');
@@ -61,6 +62,7 @@
       enterEditMode(); // layout testing without auth; save disabled
       return;
     }
+    if (token) { enterEditMode(); return; } // already unlocked this session
     if (localStorage.getItem(LS_KEY)) {
       var pw = prompt('Editor password:');
       if (!pw) return;
@@ -80,12 +82,63 @@
   // ---------- edit mode ----------
   function enterEditMode() {
     editing = true;
-    splitProse();
-    markEditable();
-    addControls();
-    injectChrome();
-    suppressLinks();
-    document.documentElement.classList.add('rln-edit-on');
+    hydrateFromSource().then(function (sha) {
+      baseSha = sha;
+      // Content swapped in after load never gets the reveal observer, so
+      // show everything plainly while editing.
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      splitProse();
+      markEditable();
+      addControls();
+      injectChrome();
+      suppressLinks();
+      document.documentElement.classList.add('rln-edit-on');
+    }).catch(function (e) {
+      editing = false;
+      alert('Could not load the latest version of this page: ' + e.message);
+    });
+  }
+
+  // The page the browser shows can lag the repo by minutes (GitHub Pages and
+  // its CDN cache). Editing that stale copy and saving would overwrite newer
+  // saves, so edit mode always starts from the repo's current version.
+  function hydrateFromSource() {
+    var file = currentFile();
+    var fetched;
+    if (token) {
+      var api = 'https://api.github.com/repos/' + REPO + '/contents/' + file;
+      fetched = fetch(api, { headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' } })
+        .then(function (r) { if (!r.ok) throw new Error('GitHub API: ' + r.status); return r.json(); })
+        .then(function (data) {
+          var src = new TextDecoder().decode(Uint8Array.from(atob(data.content.replace(/\n/g, '')), function (c) { return c.charCodeAt(0); }));
+          return { src: src, sha: data.sha };
+        });
+    } else {
+      fetched = fetch(file + '?nocache=' + Date.now(), { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+        .then(function (src) { return { src: src, sha: null }; });
+    }
+    return fetched.then(function (res) {
+      var doc = new DOMParser().parseFromString(res.src, 'text/html');
+      var m = doc.querySelector('main');
+      var f = doc.querySelector('.site-foot');
+      if (m && document.querySelector('main')) document.querySelector('main').innerHTML = m.innerHTML;
+      if (f && document.querySelector('.site-foot')) document.querySelector('.site-foot').innerHTML = f.innerHTML;
+      document.querySelectorAll('[contenteditable]').forEach(function (el) { el.removeAttribute('contenteditable'); });
+      return res.sha;
+    });
+  }
+
+  // Leave edit mode without reloading: a reload would show the stale cached
+  // page and make a just-saved edit look lost.
+  function exitEditModeInPlace() {
+    document.querySelectorAll('.rln-ctl, .rln-bar').forEach(function (n) { n.remove(); });
+    document.querySelectorAll('[contenteditable]').forEach(function (n) { n.removeAttribute('contenteditable'); });
+    document.querySelectorAll('.rln-block').forEach(function (n) { n.classList.remove('rln-block', 'rln-flash'); });
+    document.documentElement.classList.remove('rln-edit-on');
+    editing = false;
+    dirty = false;
+    baseSha = null;
   }
 
   // While editing, links must not navigate: the work list titles live inside
@@ -286,7 +339,9 @@
     document.getElementById('rln-exit').onclick = function () {
       if (!dirty || confirm('Discard unsaved changes?')) location.reload();
     };
+    if (document.getElementById('rln-style')) return;
     var st = document.createElement('style');
+    st.id = 'rln-style';
     st.textContent =
       '.rln-edit-on [contenteditable="true"]{outline:1.5px dashed color-mix(in srgb, var(--accent) 55%, transparent);outline-offset:4px;border-radius:4px;min-height:1em}' +
       '.rln-edit-on [contenteditable="true"]:focus{outline-style:solid;outline-color:var(--accent)}' +
@@ -344,6 +399,11 @@
       if (!r.ok) throw new Error('GitHub API: ' + r.status);
       return r.json();
     }).then(function (data) {
+      if (baseSha && data.sha !== baseSha) {
+        if (!confirm('This page was saved from somewhere else (another tab or device) after you started editing here. Saving now will overwrite that version. Continue?')) {
+          throw new Error('__cancelled__');
+        }
+      }
       var src = new TextDecoder().decode(Uint8Array.from(atob(data.content.replace(/\n/g, '')), function (c) { return c.charCodeAt(0); }));
       var doc = new DOMParser().parseFromString(src, 'text/html');
       var liveMain = document.querySelector('main');
@@ -368,10 +428,10 @@
       });
     }).then(function (r) {
       if (!r.ok) throw new Error('GitHub API: ' + r.status);
-      alert('Saved. The live site updates in about a minute.\nEvery save is a git commit, so anything can be reverted.');
-      dirty = false;
-      location.reload();
+      exitEditModeInPlace();
+      alert('Saved. What you see now is your saved version. The public page catches up in a minute or two, so do not worry if a refresh briefly shows the old text.\nTo keep editing, just press Cmd+Shift+E again.');
     }).catch(function (e) {
+      if (e.message === '__cancelled__') return;
       alert('Save failed: ' + e.message + '\nIf this keeps happening, the token may be wrong or expired. Reset it: localStorage.removeItem("' + LS_KEY + '") in the console, then set up again.');
     });
   }
