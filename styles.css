@@ -264,6 +264,36 @@ figure.media.board img { height: auto; object-fit: contain; }
 }
 .mediarow.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .mediarow.one { grid-template-columns: 1fr; }
+.mediarow.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 760px) { .mediarow.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* A board figure that visually continues into the band below it */
+figure.media.stack-top {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* Purple interaction band, sampled from the Moment board (#534aef) */
+.gifband {
+  margin-top: 0;
+  background: #534aef;
+  border: 1px solid var(--hairline);
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+  padding: clamp(16px, 3vw, 34px);
+  gap: clamp(12px, 2vw, 22px);
+}
+.gifband figure.media {
+  aspect-ratio: auto;
+  min-height: 0;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  display: block;
+}
+.gifband video { width: 100%; height: auto; display: block; }
 .mediarow figure.media { margin-block: 0; aspect-ratio: 9 / 17; min-height: 0; }
 .mediarow.shots figure.media { aspect-ratio: 9 / 19; }
 @media (max-width: 640px) {

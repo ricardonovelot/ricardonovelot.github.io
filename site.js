@@ -27,4 +27,22 @@
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     els.forEach(function (el) { io.observe(el); });
   }
+
+  // Looping demo videos: play only while on screen, and not at all if the
+  // visitor prefers reduced motion. Covers autoplay policies that ignore the
+  // attribute, and stops several loops from decoding off screen at once.
+  var vids = document.querySelectorAll('video[muted][loop]');
+  if (vids.length) {
+    if (reduce || !('IntersectionObserver' in window)) {
+      vids.forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); v.setAttribute('controls', ''); });
+    } else {
+      var vio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.play().catch(function () {}); }
+          else { e.target.pause(); }
+        });
+      }, { rootMargin: '120px' });
+      vids.forEach(function (v) { vio.observe(v); });
+    }
+  }
 })();

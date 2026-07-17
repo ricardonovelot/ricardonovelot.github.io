@@ -255,10 +255,11 @@
   // default grid, 2 get .two, 1 gets .one, 0 removes the row itself.
   function normalizeRow(row) {
     var figs = row.querySelectorAll(':scope > figure.media');
-    row.classList.remove('one', 'two');
+    row.classList.remove('one', 'two', 'four');
     if (figs.length === 0) { row.remove(); return; }
     if (figs.length === 1) row.classList.add('one');
     else if (figs.length === 2) row.classList.add('two');
+    else if (figs.length >= 4) row.classList.add('four');
   }
 
   function figAction(act, f) {
