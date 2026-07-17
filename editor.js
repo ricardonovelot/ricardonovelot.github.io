@@ -173,6 +173,55 @@
       });
       b.appendChild(c);
     });
+    addFigureControls();
+  }
+
+  // Each image inside a photo row gets its own controls, so a single column
+  // can be removed or reordered without touching the rest of the row.
+  function addFigureControls() {
+    document.querySelectorAll('main .mediarow > figure.media').forEach(function (f) {
+      if (f.querySelector(':scope > .rln-ctl')) return;
+      f.classList.add('rln-block');
+      var c = document.createElement('div');
+      c.className = 'rln-ctl in';
+      c.setAttribute('contenteditable', 'false');
+      c.innerHTML = '<button type="button" data-fact="left" title="Move left">&larr;</button>' +
+        '<button type="button" data-fact="right" title="Move right">&rarr;</button>' +
+        '<button type="button" data-fact="del" title="Remove this image">&#10005;</button>';
+      c.addEventListener('click', function (e) {
+        var btn = e.target.closest('button');
+        if (!btn) return;
+        e.preventDefault(); e.stopPropagation();
+        figAction(btn.getAttribute('data-fact'), f);
+      });
+      f.appendChild(c);
+    });
+  }
+
+  // Keep the row's column count honest after removals: 3+ images use the
+  // default grid, 2 get .two, 1 gets .one, 0 removes the row itself.
+  function normalizeRow(row) {
+    var figs = row.querySelectorAll(':scope > figure.media');
+    row.classList.remove('one', 'two');
+    if (figs.length === 0) { row.remove(); return; }
+    if (figs.length === 1) row.classList.add('one');
+    else if (figs.length === 2) row.classList.add('two');
+  }
+
+  function figAction(act, f) {
+    var row = f.parentElement;
+    if (act === 'del') {
+      if (!confirm('Remove this image? (Save afterwards to make it permanent)')) return;
+      f.remove(); normalizeRow(row); dirty = true;
+    } else if (act === 'left') {
+      var prev = f.previousElementSibling;
+      while (prev && !prev.matches('figure.media')) prev = prev.previousElementSibling;
+      if (prev) { row.insertBefore(f, prev); dirty = true; flash(f); }
+    } else if (act === 'right') {
+      var next = f.nextElementSibling;
+      while (next && !next.matches('figure.media')) next = next.nextElementSibling;
+      if (next) { row.insertBefore(next, f); dirty = true; flash(f); }
+    }
   }
 
   function siblingBlock(b, dir) {
@@ -243,6 +292,7 @@
       '.rln-edit-on [contenteditable="true"]:focus{outline-style:solid;outline-color:var(--accent)}' +
       '.rln-block{position:relative}' +
       '.rln-ctl{position:absolute;top:-14px;right:0;display:none;gap:4px;z-index:60}' +
+      '.rln-ctl.in{top:8px;right:8px}' +
       '.rln-block:hover > .rln-ctl{display:flex}' +
       '.rln-ctl button{font:600 12px/1 Inter,system-ui,sans-serif;background:var(--ink);color:var(--bg);border:0;border-radius:7px;padding:6px 9px;cursor:pointer;opacity:.92}' +
       '.rln-ctl button:hover{background:var(--accent);color:#fff;opacity:1}' +
@@ -274,6 +324,9 @@
     });
     clone.querySelectorAll('ul, ol').forEach(function (l) {
       if (!l.children.length) l.remove();
+    });
+    clone.querySelectorAll('.mediarow').forEach(function (r) {
+      if (!r.querySelector('figure')) r.remove();
     });
     clone.querySelectorAll('.prose.sec').forEach(function (s) {
       if (!s.textContent.trim() && !s.querySelector('img,video')) s.remove();
