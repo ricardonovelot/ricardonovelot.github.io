@@ -213,11 +213,11 @@ img, video { max-width: 100%; display: block; }
 .prose.sec:last-of-type { padding-bottom: 30px; }
 .prose h2 {
   margin-top: 52px;
-  font-size: 0.82rem;
-  font-weight: 660;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--soft);
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+  font-weight: 680;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
 }
 .prose h2 + p { margin-top: 14px; }
 .prose h3 { margin-top: 30px; font-size: 1.12rem; font-weight: 640; letter-spacing: -0.01em; }
@@ -316,6 +316,33 @@ figcaption.cap, .cap-line {
   margin-bottom: 34px;
   font-size: 0.85rem;
   color: var(--soft);
+}
+
+/* ---------- split bands: text beside its phone ---------- */
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+  margin-block: clamp(40px, 7vw, 72px);
+}
+.split .prose.sec { max-width: 56ch; }
+.split .prose.sec h2 { margin-top: 0; }
+.split .split-media { justify-self: center; }
+.split .split-media figure.phone { width: min(260px, 78vw); border-radius: 40px; }
+.split .split-media figure.phone img { border-radius: 35px; }
+.split .split-media .cap-line {
+  margin: 12px auto 0;
+  max-width: 26ch;
+  text-align: center;
+}
+.split.flip .split-media { order: -1; }
+.split.flip { grid-template-columns: auto minmax(0, 1fr); }
+@media (max-width: 860px) {
+  .split, .split.flip { grid-template-columns: 1fr; }
+  .split.flip .split-media { order: 2; }
+  .split .split-media { margin-top: 8px; }
 }
 
 /* ---------- iPhone frame mockups ---------- */

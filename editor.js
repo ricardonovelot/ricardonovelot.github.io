@@ -190,7 +190,7 @@
     });
   }
 
-  var BLOCK_SEL = 'main > .prose.sec, main > figure.media, main > .mediarow, main > .phonerow, main > .diagram, main > section, main .worklist > .workrow';
+  var BLOCK_SEL = 'main > .prose.sec, main > figure.media, main > .mediarow, main > .phonerow, main > .split, main > .diagram, main > section, main .worklist > .workrow';
   var SKIP_SEL = '.case-hero, .meta, .next';
   function blocks() {
     return Array.from(document.querySelectorAll(BLOCK_SEL)).filter(function (b) {
