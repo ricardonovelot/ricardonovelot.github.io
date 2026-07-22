@@ -332,20 +332,21 @@ figure.phone {
   margin: 0;
   width: min(300px, 82vw);
   padding: 5px;
-  background: #101013;
-  border-radius: 46px;
+  background: #000;
+  border-radius: 44px;
   box-shadow:
-    inset 0 0 0 1.5px rgba(255, 255, 255, 0.09),
-    0 30px 70px -18px rgba(0, 0, 0, 0.5);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    0 18px 40px -24px rgba(0, 0, 0, 0.4);
 }
 figure.phone img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 41px;
+  border-radius: 39px;
 }
-.phonerow.trio figure.phone { width: min(250px, 82vw); border-radius: 40px; }
-.phonerow.trio figure.phone img { border-radius: 35px; }
+.phonerow.trio figure.phone { width: min(250px, 82vw); border-radius: 37px; }
+.phonerow.trio figure.phone img { border-radius: 32px; }
 .phonerow.trio figure.phone.lead { width: min(330px, 86vw); border-radius: 48px; }
 .phonerow.trio figure.phone.lead img { border-radius: 43px; }
 .phonerow + .cap-line {
