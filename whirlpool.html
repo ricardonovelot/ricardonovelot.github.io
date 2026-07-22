@@ -91,11 +91,21 @@
     <a href="https://github.com/ricardonovelot">GitHub</a>
     <a href="https://www.behance.net/ricardolopezn">Behance</a>
   </div>
-  <p class="smallprint">Designed and built in Monterrey. No trackers, no cookies. © 2026 Ricardo López Novelo.</p>
+  <p class="smallprint">Designed and built in Monterrey. No cookies. Simple, privacy friendly analytics. © 2026 Ricardo López Novelo.</p>
 </footer>
 
 
 
 
 
+
+<script>
+  // Visit counting (GoatCounter): no cookies, nothing personal stored.
+  // Keeps the ?ref= tag so tagged application links show up per company.
+  window.goatcounter = { path: function () {
+    var r = new URLSearchParams(location.search).get('ref');
+    return location.pathname + (r ? '?ref=' + r : '');
+  } };
+</script>
+<script data-goatcounter="https://ricardonovelo.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body></html>
