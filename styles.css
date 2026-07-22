@@ -318,6 +318,42 @@ figcaption.cap, .cap-line {
   color: var(--soft);
 }
 
+/* ---------- iPhone frame mockups ---------- */
+
+.phonerow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(18px, 3.5vw, 40px);
+  margin-block: clamp(36px, 6vw, 56px);
+}
+figure.phone {
+  margin: 0;
+  width: min(300px, 82vw);
+  padding: 10px;
+  background: #101013;
+  border-radius: 46px;
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.09),
+    0 30px 70px -18px rgba(0, 0, 0, 0.5);
+}
+figure.phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 37px;
+}
+.phonerow.trio figure.phone { width: min(250px, 82vw); border-radius: 40px; }
+.phonerow.trio figure.phone img { border-radius: 31px; }
+.phonerow.trio figure.phone.lead { width: min(330px, 86vw); border-radius: 48px; }
+.phonerow.trio figure.phone.lead img { border-radius: 39px; }
+.phonerow + .cap-line {
+  margin-top: calc(-1 * clamp(16px, 4vw, 36px));
+  margin-bottom: clamp(36px, 6vw, 56px);
+  text-align: center;
+}
+
 /* diagrams */
 .diagram {
   margin-block: 34px;

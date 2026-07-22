@@ -190,7 +190,7 @@
     });
   }
 
-  var BLOCK_SEL = 'main > .prose.sec, main > figure.media, main > .mediarow, main > .diagram, main > section, main .worklist > .workrow';
+  var BLOCK_SEL = 'main > .prose.sec, main > figure.media, main > .mediarow, main > .phonerow, main > .diagram, main > section, main .worklist > .workrow';
   var SKIP_SEL = '.case-hero, .meta, .next';
   function blocks() {
     return Array.from(document.querySelectorAll(BLOCK_SEL)).filter(function (b) {
@@ -232,7 +232,7 @@
   // Each image inside a photo row gets its own controls, so a single column
   // can be removed or reordered without touching the rest of the row.
   function addFigureControls() {
-    document.querySelectorAll('main .mediarow > figure.media').forEach(function (f) {
+    document.querySelectorAll('main .mediarow > figure.media, main .phonerow > figure.phone').forEach(function (f) {
       if (f.querySelector(':scope > .rln-ctl')) return;
       f.classList.add('rln-block');
       var c = document.createElement('div');
@@ -254,9 +254,15 @@
   // Keep the row's column count honest after removals: 3+ images use the
   // default grid, 2 get .two, 1 gets .one, 0 removes the row itself.
   function normalizeRow(row) {
-    var figs = row.querySelectorAll(':scope > figure.media');
+    var figs = row.querySelectorAll(':scope > figure');
+    if (figs.length === 0) {
+      var cap = row.nextElementSibling;
+      if (cap && cap.classList.contains('cap-line')) cap.remove();
+      row.remove();
+      return;
+    }
+    if (row.classList.contains('phonerow')) return; // flex row sizes itself
     row.classList.remove('one', 'two', 'four');
-    if (figs.length === 0) { row.remove(); return; }
     if (figs.length === 1) row.classList.add('one');
     else if (figs.length === 2) row.classList.add('two');
     else if (figs.length >= 4) row.classList.add('four');
@@ -269,11 +275,11 @@
       f.remove(); normalizeRow(row); dirty = true;
     } else if (act === 'left') {
       var prev = f.previousElementSibling;
-      while (prev && !prev.matches('figure.media')) prev = prev.previousElementSibling;
+      while (prev && !prev.matches('figure')) prev = prev.previousElementSibling;
       if (prev) { row.insertBefore(f, prev); dirty = true; flash(f); }
     } else if (act === 'right') {
       var next = f.nextElementSibling;
-      while (next && !next.matches('figure.media')) next = next.nextElementSibling;
+      while (next && !next.matches('figure')) next = next.nextElementSibling;
       if (next) { row.insertBefore(next, f); dirty = true; flash(f); }
     }
   }
