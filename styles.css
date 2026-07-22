@@ -331,7 +331,7 @@ figcaption.cap, .cap-line {
 figure.phone {
   margin: 0;
   width: min(300px, 82vw);
-  padding: 10px;
+  padding: 5px;
   background: #101013;
   border-radius: 46px;
   box-shadow:
@@ -342,12 +342,12 @@ figure.phone img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 37px;
+  border-radius: 41px;
 }
 .phonerow.trio figure.phone { width: min(250px, 82vw); border-radius: 40px; }
-.phonerow.trio figure.phone img { border-radius: 31px; }
+.phonerow.trio figure.phone img { border-radius: 35px; }
 .phonerow.trio figure.phone.lead { width: min(330px, 86vw); border-radius: 48px; }
-.phonerow.trio figure.phone.lead img { border-radius: 39px; }
+.phonerow.trio figure.phone.lead img { border-radius: 43px; }
 .phonerow + .cap-line {
   margin-top: calc(-1 * clamp(16px, 4vw, 36px));
   margin-bottom: clamp(36px, 6vw, 56px);
