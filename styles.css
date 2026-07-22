@@ -265,6 +265,17 @@ figure.media.board img { height: auto; object-fit: contain; }
 .mediarow.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .mediarow.one { grid-template-columns: 1fr; }
 .mediarow.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+/* Two phone screenshots side by side stay legible instead of towering */
+.mediarow.pair {
+  grid-template-columns: repeat(2, minmax(0, 330px));
+  justify-content: center;
+}
+.mediarow.pair figure.media { aspect-ratio: 9 / 19; }
+@media (max-width: 640px) {
+  /* Two phone screens side by side on a phone are too small to read */
+  .mediarow.pair { grid-template-columns: 1fr; }
+  .mediarow.pair figure.media { aspect-ratio: 9 / 19; }
+}
 @media (max-width: 760px) { .mediarow.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* A board figure that visually continues into the band below it */
