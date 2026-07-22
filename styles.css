@@ -208,7 +208,7 @@ img, video { max-width: 100%; display: block; }
 .meta dd { margin-top: 4px; font-size: 0.95rem; }
 @media (max-width: 640px) { .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-.prose { max-width: 68ch; padding-block: 18px 30px; }
+.prose { max-width: 52ch; padding-block: 18px 30px; }
 .prose.sec { padding-block: 0; }
 .prose.sec:last-of-type { padding-bottom: 30px; }
 .prose h2 {
@@ -322,27 +322,28 @@ figcaption.cap, .cap-line {
 
 .split {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(32px, 6vw, 80px);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) min(212px, 78vw);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
   margin-block: clamp(40px, 7vw, 72px);
 }
 .split .prose.sec { max-width: 56ch; }
 .split .prose.sec h2 { margin-top: 0; }
 .split .split-media { justify-self: center; }
-.split .split-media figure.phone { width: min(260px, 78vw); border-radius: 40px; }
-.split .split-media figure.phone img { border-radius: 35px; }
+.split .split-media figure.phone { width: min(212px, 78vw); border-radius: 33px; }
+.split .split-media figure.phone img { border-radius: 28px; }
 .split .split-media .cap-line {
-  margin: 12px auto 0;
-  max-width: 26ch;
+  margin: 14px auto 0;
+  max-width: 30ch;
   text-align: center;
+  font-size: 0.82rem;
 }
-.split.flip .split-media { order: -1; }
-.split.flip { grid-template-columns: auto minmax(0, 1fr); }
 @media (max-width: 860px) {
-  .split, .split.flip { grid-template-columns: 1fr; }
-  .split.flip .split-media { order: 2; }
+  .split { grid-template-columns: 1fr; }
   .split .split-media { margin-top: 8px; }
+  /* stacked, the phone can be bigger and stay legible */
+  .split .split-media figure.phone { width: min(264px, 72vw); border-radius: 40px; }
+  .split .split-media figure.phone img { border-radius: 35px; }
 }
 
 /* ---------- iPhone frame mockups ---------- */
@@ -385,6 +386,7 @@ figure.phone img {
 /* diagrams */
 .diagram {
   margin-block: 34px;
+  max-width: 820px;
   border: 1px solid var(--hairline);
   border-radius: 16px;
   padding: clamp(16px, 4vw, 32px);
