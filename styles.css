@@ -377,6 +377,39 @@ figure.phone img {
 .phonerow.trio figure.phone img { border-radius: 32px; }
 .phonerow.trio figure.phone.lead { width: min(330px, 86vw); border-radius: 48px; }
 .phonerow.trio figure.phone.lead img { border-radius: 43px; }
+/* Mobile: the trio becomes a swipeable strip so it stays one screen tall
+   instead of three stacked wallpapers, and every phone shrinks to read as a
+   figure on the page rather than the whole page. */
+@media (max-width: 700px) {
+  .phonerow {
+    gap: 14px;
+    margin-block: clamp(28px, 8vw, 40px);
+  }
+  .phonerow.trio {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 64%;
+    justify-content: start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-inline: clamp(20px, 5vw, 48px);
+    margin-inline: calc(-1 * clamp(20px, 5vw, 48px));
+  }
+  .phonerow.trio::-webkit-scrollbar { display: none; }
+  .phonerow.trio figure.phone,
+  .phonerow.trio figure.phone.lead {
+    width: 100%;
+    scroll-snap-align: center;
+    border-radius: 34px;
+  }
+  .phonerow.trio figure.phone img,
+  .phonerow.trio figure.phone.lead img { border-radius: 29px; }
+  /* Single-phone rows: a comfortable figure size, centered, not full bleed */
+  .phonerow:not(.trio) figure.phone { width: min(230px, 62vw); }
+}
+
 .phonerow + .cap-line {
   margin-top: calc(-1 * clamp(16px, 4vw, 36px));
   margin-bottom: clamp(36px, 6vw, 56px);
