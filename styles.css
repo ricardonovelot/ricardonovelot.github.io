@@ -213,11 +213,11 @@ img, video { max-width: 100%; display: block; }
 .prose.sec:last-of-type { padding-bottom: 30px; }
 .prose h2 {
   margin-top: 52px;
-  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
-  font-weight: 680;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 660;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
 }
 .prose h2 + p { margin-top: 14px; }
 .prose h3 { margin-top: 30px; font-size: 1.12rem; font-weight: 640; letter-spacing: -0.01em; }
@@ -350,30 +350,27 @@ figcaption.cap, .cap-line {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: clamp(24px, 3vw, 40px) clamp(20px, 2.5vw, 32px);
+  grid-template-columns: repeat(3, minmax(0, 200px));
+  justify-content: start;
+  gap: clamp(30px, 3.5vw, 44px) clamp(22px, 2.5vw, 32px);
   margin-block: clamp(28px, 5vw, 44px) clamp(40px, 7vw, 72px);
-  max-width: 900px;
 }
 .gallery figure.phone {
   margin: 0;
   width: 100%;
+  border-radius: 28px;
+  padding: 4px;
 }
+.gallery figure.phone img { border-radius: 22px; }
 .gallery figcaption {
-  margin-top: 14px;
-  font-size: 0.85rem;
-  line-height: 1.45;
+  margin-top: 12px;
+  font-size: 0.78rem;
+  line-height: 1.4;
   color: var(--soft);
 }
 @media (max-width: 720px) {
-  /* one comfortable column on phones, images no longer full bleed */
-  .gallery {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: clamp(28px, 8vw, 44px);
-  }
-  .gallery figure.phone { width: min(240px, 66vw); }
-  .gallery figcaption { text-align: center; max-width: 32ch; }
+  /* two per row keeps the sheet compact instead of a long stack */
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 16px; }
 }
 
 /* ---------- iPhone frame mockups ---------- */
