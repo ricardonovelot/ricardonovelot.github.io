@@ -217,22 +217,26 @@ main.shell .prose { max-width: none; }
 .prose { max-width: 60ch; padding-block: 18px 30px; }
 .prose.sec { padding-block: 0; }
 .prose.sec:last-of-type { padding-bottom: 30px; }
+/* Vertical rhythm scales with the measure. The old 52px and 14px were set
+   for a narrower column; on a wide one a paragraph break has to be worth
+   about a full line, or the paragraphs run together. Narrow screens clamp
+   back to the original values, which is where they read best. */
 .prose h2 {
-  margin-top: 52px;
+  margin-top: clamp(52px, 5.5vw, 78px);
   font-size: 0.82rem;
   font-weight: 660;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--soft);
 }
-.prose h2 + p { margin-top: 14px; }
-.prose h3 { margin-top: 30px; font-size: 1.12rem; font-weight: 640; letter-spacing: -0.01em; }
-.prose h3 + p { margin-top: 8px; }
-.prose p + p { margin-top: 14px; }
+.prose h2 + p { margin-top: clamp(14px, 1.3vw, 19px); }
+.prose h3 { margin-top: clamp(30px, 3vw, 42px); font-size: 1.12rem; font-weight: 640; letter-spacing: -0.01em; }
+.prose h3 + p { margin-top: clamp(8px, 0.8vw, 11px); }
+.prose p + p { margin-top: clamp(14px, 1.7vw, 25px); }
 .prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .prose a:hover { text-decoration-thickness: 2px; }
-.prose ul { margin-top: 12px; padding-left: 1.1em; }
-.prose li + li { margin-top: 6px; }
+.prose ul { margin-top: clamp(12px, 1.3vw, 18px); padding-left: 1.1em; }
+.prose li + li { margin-top: clamp(6px, 0.7vw, 10px); }
 
 /* ---------- figures / media ---------- */
 
