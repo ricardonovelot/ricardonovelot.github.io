@@ -346,6 +346,36 @@ figcaption.cap, .cap-line {
   .split .split-media figure.phone img { border-radius: 35px; }
 }
 
+/* ---------- gallery: all the screens together at the end ---------- */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(24px, 3vw, 40px) clamp(20px, 2.5vw, 32px);
+  margin-block: clamp(28px, 5vw, 44px) clamp(40px, 7vw, 72px);
+  max-width: 900px;
+}
+.gallery figure.phone {
+  margin: 0;
+  width: 100%;
+}
+.gallery figcaption {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--soft);
+}
+@media (max-width: 720px) {
+  /* one comfortable column on phones, images no longer full bleed */
+  .gallery {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: clamp(28px, 8vw, 44px);
+  }
+  .gallery figure.phone { width: min(240px, 66vw); }
+  .gallery figcaption { text-align: center; max-width: 32ch; }
+}
+
 /* ---------- iPhone frame mockups ---------- */
 
 .phonerow {
