@@ -176,14 +176,14 @@ img, video { max-width: 100%; display: block; }
 /* ---------- case pages ---------- */
 
 /* The case page is one centered reading column. Media breaks out wider. */
-main.shell { max-width: 660px; }
+main.shell { max-width: 800px; }
 main.shell .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 main.shell > figure.media,
 main.shell > .mediarow,
 main.shell > .diagram {
   /* Negative margins move the actual box, so the page never gains a
      horizontal scrollbar the way a transform-based breakout does. */
-  --breakout: min(1000px, 90vw);
+  --breakout: min(1080px, 92vw);
   width: var(--breakout);
   margin-inline: calc((100% - var(--breakout)) / 2);
   max-width: none;
@@ -227,7 +227,7 @@ main.shell > .diagram {
 .meta dd { margin-top: 4px; font-size: 0.95rem; }
 @media (max-width: 640px) { .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-.prose { max-width: 52ch; padding-block: 18px 30px; }
+.prose { max-width: 60ch; padding-block: 18px 30px; }
 .prose.sec { padding-block: 0; }
 .prose.sec:last-of-type { padding-bottom: 30px; }
 .prose h2 {
