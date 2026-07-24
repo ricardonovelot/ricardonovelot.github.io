@@ -175,6 +175,25 @@ img, video { max-width: 100%; display: block; }
 
 /* ---------- case pages ---------- */
 
+/* The case page is one centered reading column. Media breaks out wider. */
+main.shell { max-width: 660px; }
+main.shell .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+main.shell > figure.media,
+main.shell > .mediarow,
+main.shell > .diagram {
+  /* Negative margins move the actual box, so the page never gains a
+     horizontal scrollbar the way a transform-based breakout does. */
+  --breakout: min(1000px, 90vw);
+  width: var(--breakout);
+  margin-inline: calc((100% - var(--breakout)) / 2);
+  max-width: none;
+}
+@media (max-width: 760px) {
+  main.shell > figure.media,
+  main.shell > .mediarow,
+  main.shell > .diagram { --breakout: 100%; }
+}
+
 .case-hero { padding-block: clamp(44px, 8vw, 90px) 20px; }
 .case-hero .eyebrow { color: var(--soft); font-size: 0.9rem; }
 .case-hero h1 {
@@ -350,18 +369,23 @@ figcaption.cap, .cap-line {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 200px));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: start;
   gap: clamp(30px, 3.5vw, 44px) clamp(22px, 2.5vw, 32px);
   margin-block: clamp(28px, 5vw, 44px) clamp(40px, 7vw, 72px);
 }
-.gallery figure.phone {
-  margin: 0;
+.gallery figure.shot { margin: 0; }
+.gallery .phone {
   width: 100%;
-  border-radius: 28px;
   padding: 4px;
+  background: #000;
+  border-radius: 28px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    0 18px 40px -24px rgba(0, 0, 0, 0.4);
 }
-.gallery figure.phone img { border-radius: 22px; }
+.gallery .phone img { display: block; width: 100%; height: auto; border-radius: 24px; }
 .gallery figcaption {
   margin-top: 12px;
   font-size: 0.78rem;
