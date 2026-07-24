@@ -175,34 +175,11 @@ img, video { max-width: 100%; display: block; }
 
 /* ---------- case pages ---------- */
 
-/* Case pages run the full page width. A single wide text column would push
-   lines past a readable length, so each section is a two column grid: the
-   label sits in the left margin, the prose in a measured column beside it.
-   The page reads wide, the lines stay short. */
-main.shell { max-width: min(1060px, 94vw); }
-main.shell .prose.sec {
-  display: grid;
-  /* The text column takes the remainder, so the grid ends flush with the
-     media and the page keeps one right edge. */
-  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
-  column-gap: clamp(32px, 5vw, 88px);
-  margin-top: clamp(44px, 5.5vw, 72px);
-  max-width: none;
-}
-main.shell .prose.sec > * { grid-column: 2; max-width: none; }
-main.shell .prose.sec > h2 {
-  grid-column: 1;
-  grid-row: 1;
-  margin-top: 0;
-  padding-top: 0.4em;      /* optically align the label with the first line */
-}
-main.shell .prose.sec > h2 + * { margin-top: 0; }
-@media (max-width: 900px) {
-  main.shell .prose.sec { grid-template-columns: minmax(0, 1fr); }
-  main.shell .prose.sec > * { grid-column: 1; }
-  main.shell .prose.sec > h2 { grid-row: auto; padding-top: 0; }
-  main.shell .prose.sec > h2 + * { margin-top: 14px; }
-}
+/* The case page is one centered reading column: label above its text, the
+   way it was. Just wider. The prose fills the column rather than carrying
+   its own narrower cap, so there is no dead band on the right. */
+main.shell { max-width: min(980px, 94vw); }
+main.shell .prose { max-width: none; }
 
 .case-hero { padding-block: clamp(44px, 8vw, 90px) 20px; }
 .case-hero .eyebrow { color: var(--soft); font-size: 0.9rem; }
