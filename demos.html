@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260724123703">
-<script src="site.js?v=20260724123703" defer=""></script>
-<script src="editor.js?v=20260724123703" defer=""></script>
+<link rel="stylesheet" href="styles.css?v=20260812211920">
+<script src="site.js?v=20260812211920" defer=""></script>
+<script src="editor.js?v=20260812211920" defer=""></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -32,6 +32,13 @@
     <p class="standfirst">An internal iOS app I designed and built in Swift so the design team at Whirlpool can test high fidelity concepts on real devices before they reach the official apps.</p>
   </div>
 
+  <div class="mediarow shots lead-media">
+    <figure class="media reveal"><img src="https://github.com/user-attachments/assets/910c419c-3387-4113-9ddb-7efbb82b79a5" alt="Demos app screenshot from the project README" fetchpriority="high"></figure>
+    <figure class="media reveal"><img src="https://github.com/user-attachments/assets/57e8a379-a158-4329-9cb1-7c85b0347937" alt="Demos app screenshot from the project README" fetchpriority="high"></figure>
+    <figure class="media reveal"><img src="https://github.com/user-attachments/assets/38d17c2e-7c93-405d-a3d5-20605672bc99" alt="Demos app screenshot from the project README" fetchpriority="high"></figure>
+  </div>
+  <p class="cap-line">Demos running on a real phone: the concept, not a prototype of it.</p>
+
   <dl class="meta">
     <div><dt>Role</dt><dd>Designer and solo developer</dd></div>
     <div><dt>Platform</dt><dd>iOS, Swift</dd></div>
@@ -43,13 +50,10 @@
 
   <div class="prose sec"><h2>Context</h2><p>I am a designer on the UX team at Whirlpool. A design can look resolved in a mockup and still feel different the moment it runs on a real device: the timing, the navigation, how a theme reads on an actual screen. Demos exists to close that gap before anything reaches Whirlpool's official apps.</p></div><div class="prose sec"><h2>What it is</h2><p>Demos replicates actual product experiences at high fidelity so we could put concepts on real devices early. That meant building more than screens. It has its own design system architecture and a custom navigation implementation, because a simulation is only convincing if the connective tissue behaves like the real thing. It switches between the brands in Whirlpool's portfolio and their themes, and it can run multiple variants of a design side by side for comparison. Builds go to the team through TestFlight.</p></div>
 
-  <div class="mediarow shots">
-    <figure class="media reveal"><img src="https://github.com/user-attachments/assets/910c419c-3387-4113-9ddb-7efbb82b79a5" alt="Demos app screenshot from the project README" loading="lazy"></figure>
-    <figure class="media reveal"><img src="https://github.com/user-attachments/assets/57e8a379-a158-4329-9cb1-7c85b0347937" alt="Demos app screenshot from the project README" loading="lazy"></figure>
-    <figure class="media reveal"><img src="https://github.com/user-attachments/assets/38d17c2e-7c93-405d-a3d5-20605672bc99" alt="Demos app screenshot from the project README" loading="lazy"></figure>
-  </div>
 
-  <div class="prose sec"><h2>How the team used it</h2><p>When the team couldn't agree on a direction, we load the options into Demos and compare them on a real phone instead of arguing over screenshots. When a pattern has to hold up across every brand we own, we flip through the themes and watch for the one where it falls apart.</p><p>The point is what people are reacting to. A rough prototype gets you opinions about the prototype: the placeholder text, the animation that isn't there yet. Demos is a real app, so the reaction you get is the reaction the customer will have. Everyone installs it once from TestFlight and gets each new build as I push it.</p></div><div class="prose sec"><h2>What building it taught the design side</h2><p>Building the design system as code was the biggest lesson. A component library in a design tool tolerates ambiguity. Code doesn't, so every state and naming decision had to actually be made, and that discipline followed me back into regular design work. The tool's job is to answer design questions, not to become a second product to maintain.</p></div>
+  <div class="prose sec"><h2>How the team used it</h2><p>When the team couldn't agree on a direction, we load the options into Demos and compare them on a real phone instead of arguing over screenshots. When a pattern has to hold up across every brand we own, we flip through the themes and watch for the one where it falls apart.</p><p>The point is what people are reacting to. A rough prototype gets you opinions about the prototype: the placeholder text, the animation that isn't there yet. Demos is a real app, so the reaction you get is the reaction the customer will have. Everyone installs it once from TestFlight and gets each new build as I push it.</p></div><div class="prose sec"><h2>Keeping it a tool</h2><p>The risk with an internal tool is that it quietly becomes a second product, with a backlog and users to support. The rule that kept it from happening: Demos earns a feature only when that feature answers a design question the team actually has. Variants side by side changed what we decided, so it went in. Anything that would be there only because apps usually have it did not. TestFlight handles distribution, so there is no install process to maintain either.</p></div>
+
+  <div class="prose sec"><h2>What building it taught the design side</h2><p>Building the design system as code was the biggest lesson. A component library in a design tool tolerates ambiguity. Code doesn't, so every state and naming decision had to actually be made, and that discipline followed me back into regular design work. The tool's job is to answer design questions, not to become a second product to maintain.</p></div>
 
   <div class="mediarow two">
     <figure class="media reveal"><img src="https://github.com/user-attachments/assets/65633770-4c5d-4980-9277-4fd690174f01" alt="Demos app screenshot from the project README" loading="lazy"></figure>

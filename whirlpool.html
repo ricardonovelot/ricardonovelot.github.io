@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260724123703">
-<script src="site.js?v=20260724123703" defer=""></script>
-<script src="editor.js?v=20260724123703" defer=""></script>
+<link rel="stylesheet" href="styles.css?v=20260812211920">
+<script src="site.js?v=20260812211920" defer=""></script>
+<script src="editor.js?v=20260812211920" defer=""></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -32,16 +32,7 @@
     <p class="standfirst">UX for connected laundry and home appliances across consumer mobile apps. This case study is about process, because work is under NDA.</p>
   </div>
 
-  <dl class="meta">
-    <div><dt>Role</dt><dd>User Experience Designer</dd></div>
-    <div><dt>Area</dt><dd>Connected appliances, laundry and home</dd></div>
-    <div><dt>Timeline</dt><dd>November 2024 to present</dd></div>
-    <div><dt>With</dt><dd>Product managers and engineers</dd></div>
-  </dl>
-
-  <div class="prose sec"><h2>Context</h2><p>I've been a User Experience Designer at Whirlpool since November 2024. I work on connected appliances across the company's consumer mobile apps.</p></div><div class="prose sec"><h2>What the work is actually like</h2><p>A connected appliance is a state machine that lives in someone's house. It can be idle, running, paused, done, or suddenly unreachable. My job is to map those states and design the multi step flows that carry people through them on a phone. That includes the edge cases where the device and the app stop agreeing about what is happening.</p><p>I work through what each state means, and what the app should do when a flow breaks partway through, with product managers and engineers.</p></div>
-
-  <div class="diagram" role="img" aria-label="Abstract device state map: idle, running, paused, done, complete, and an unreachable branch">
+  <div class="diagram lead-media" role="img" aria-label="Abstract device state map: idle, running, paused, done, complete, and an unreachable branch">
     <svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif" font-size="13" aria-hidden="true">
       <g fill="none" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5">
         <rect x="30" y="95" width="110" height="42" rx="21"></rect>
@@ -69,8 +60,19 @@
       </g>
     </svg>
   </div>
+  <p class="cap-line">Every connected appliance is a state machine living in someone's house. The dashed branch is the one that matters.</p>
 
-  <div class="prose sec"><h2>Design standards work</h2><p>I established the team's design standards, workflows, and best practices. I set up the team's Jira workflow, and it worked well enough that the rest of the UX org adopted it. A lot of that work also happened in Figma: our ways of working, handoff flows, and specs.</p><p>I also built <a href="demos.html">Demos</a>, an internal tool to test high fidelity concepts on real devices. It has its own case study.</p></div><div class="prose sec"><h2>Want more detail?</h2><p>Since the screens can't live on a public page, I'm happy to talk through the work in a conversation. If you're hiring, <a href="mailto:ricardonovelo97@gmail.com">ask me</a>.</p></div>
+  <dl class="meta">
+    <div><dt>Role</dt><dd>User Experience Designer</dd></div>
+    <div><dt>Area</dt><dd>Connected appliances, laundry and home</dd></div>
+    <div><dt>Timeline</dt><dd>November 2024 to present</dd></div>
+    <div><dt>With</dt><dd>Product managers and engineers</dd></div>
+  </dl>
+
+  <div class="prose sec"><h2>Context</h2><p>I've been a User Experience Designer at Whirlpool since November 2024. I work on connected appliances across the company's consumer mobile apps.</p></div><div class="prose sec"><h2>What the work is actually like</h2><p>A connected appliance is a state machine that lives in someone's house. It can be idle, running, paused, done, or suddenly unreachable. I map those states and design the multi step flows that carry people through them on a phone.</p><p>The interesting part is never the happy path. A phone app is a remote control for something in another room that you cannot see, so it is always working from a report rather than from the machine itself, and that report can arrive late, arrive stale, or not arrive at all.</p><p>Which turns most of the design questions into questions about confidence. What do you show when the app does not know? A stale answer, stated plainly as stale, beats a confident wrong one, and both beat a spinner that never resolves. How do you tell someone their cycle finished without asserting it, if the connection dropped an hour ago? What happens to a flow that a person started, walked away from, and came back to halfway through?</p><p>I work those through with product managers and engineers: what each state means, what the app is allowed to claim, and where a flow has to fail in a way somebody can recover from without starting over.</p></div>
+
+
+  <div class="prose sec"><h2>Design standards work</h2><p>I established the team's design standards, workflows, and best practices. I set up the team's Jira workflow, and it worked well enough that the rest of the UX org adopted it. A lot of that work also happened in Figma: our ways of working, handoff flows, and specs.</p><p>Standards only hold if people actually use them, so a good share of it is the human half of the job. I mentor other designers on the team, run design critiques and working sessions, and build the journey maps we use to argue about a flow before anyone opens a file.</p><p>I also built <a href="demos.html">Demos</a>, an internal tool to test high fidelity concepts on real devices. It has its own case study.</p></div><div class="prose sec"><h2>Want more detail?</h2><p>Since the screens can't live on a public page, I'm happy to talk through the work in a conversation. If you're hiring, <a href="mailto:ricardonovelo97@gmail.com">ask me</a>.</p></div>
 
   <nav class="next" aria-label="Next project">
     <a href="metrozone.html">

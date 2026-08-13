@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260724123703">
-<script src="site.js?v=20260724123703" defer=""></script>
-<script src="editor.js?v=20260724123703" defer=""></script>
+<link rel="stylesheet" href="styles.css?v=20260812211920">
+<script src="site.js?v=20260812211920" defer=""></script>
+<script src="editor.js?v=20260812211920" defer=""></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -32,6 +32,13 @@
     <p class="standfirst">A photo journal for iPhone that takes the scroll mechanics of social apps and points them at your own life. Designed and built solo in Swift and UIKit.</p>
   </div>
 
+  <div class="phonerow trio lead-media">
+    <figure class="phone"><img src="assets/june/june-prompt.jpg" width="860" height="1861" alt="A journal entry tinted by the feeling you picked, with the feeling wheel open below it." fetchpriority="high"></figure>
+    <figure class="phone lead"><img src="assets/june/june-feed-paris.jpg" width="860" height="1861" alt="A Madrid street at dusk held full screen, with the scrub strip and date pill below it." fetchpriority="high"></figure>
+    <figure class="phone"><img src="assets/june/june-music-picker.jpg" width="860" height="1861" alt="The song picker, suggesting songs from your own library." fetchpriority="high"></figure>
+  </div>
+  <p class="cap-line">Your own photos, your own words, your own music. June is one scroll through all three.</p>
+
   <dl class="meta">
     <div><dt>Role</dt><dd>Design and engineering, solo</dd></div>
     <div><dt>Platform</dt><dd>iOS, Swift and UIKit</dd></div>
@@ -40,15 +47,21 @@
   </dl>
 
   
-  <div class="prose sec"><h2>The idea</h2><p>Social apps spent a decade making exploration feel effortless. The problem wasn't how they worked, it was what they asked us to consume. June uses those same tools to help you rediscover your own life.</p></div>
+  <div class="prose sec"><h2>The idea</h2><p>Social apps spent a decade making exploration feel effortless. The problem was never how they worked, it was what they asked us to look at. June points the same mechanics at your own life.</p></div>
 
-  <div class="prose sec"><h2>Designing it and building it</h2><p>I designed June and then built all of it in Swift and UIKit: the feed that assembles itself out of the photo library, the music layer, and the backend that keeps it fluid on seamless features.</p></div>
+  <div class="prose sec"><h2>Designing it and building it</h2><p>I designed June and then built all of it in Swift and UIKit: the feed that assembles itself out of your photo library, the journal, the music layer, and the loading pipeline underneath that keeps it all moving. Designing and building the same product means no decision gets handed over half finished, and every idea gets tested against what the phone can actually do on the same day I have it.</p></div>
 
   <div class="prose sec"><h2>Nobody wants to face a blank page</h2><p>Journaling apps open on an empty screen and a blinking cursor, June never starts from nothing. It opens on your life already arranged: today, yesterday, the trip you took last month, grouped without you asking for it. Writing is one tap away from a photo you already care about, and the prompt is waiting for you: <em>What is making you feel grateful?</em></p></div>
 
-  <div class="prose sec"><h2>Memory has a soundtrack</h2><p>Four seconds of the right song and you are back: the car, that summer, who you were sitting next to. A photo takes longer to do that, and sometimes it never gets there at all.</p><p>So a collection in June can carry a song. Not the biggest hit from that year, but your song,&nbsp;the one you played until it became part of the memory. And it starts exactly where you want, because the moment isn't the intro. It's the chorus.</p></div>
+  <div class="prose sec"><h2>A trip is not a distance</h2><p>The feed groups your photos on its own, and getting the trip part right took two tries.</p><p>The obvious signal is distance: anything far from home is a trip. That is wrong in both directions. The gym is across the city and it is not a trip. The house your family drives to every December is three hundred kilometers away and it is not a new place, it is a habit.</p><p>So June stopped asking how far and started asking how often. If you keep returning on a cadence, it belongs to your routine, whatever the distance. If you went once and stayed a while, that was a trip. Same photos, same coordinates, a better question asked of them.</p></div>
 
-  <div class="prose sec"><h2>Speed is part of the feeling</h2><p>Most apps put friction between you and what you meant to do. June doesn't. It responds instantly, confirms with a haptic, and keeps undo within reach. Organizing an afternoon of photos becomes one continuous flow instead of forty confirmation dialogs.</p><p>An app asks, "Are you sure?" June assumes you probably are—and gives you Undo if you weren't.</p><p>That idea runs through everything. interactions happen under your thumb, repetitive work is offered once instead of repeated, and background tasks stay in the background. The app moves at the speed of your decisions, not its own.</p></div>
+  <div class="prose sec"><h2>Memory has a soundtrack</h2><p>Four seconds of the right song and you are back: the car, that summer, who you were sitting next to. A photo takes longer to do that, and sometimes it never gets there at all.</p><p>So a collection in June can carry a song, and it starts exactly where you want, because the moment is not the intro, it is the chorus.</p><p>When June suggests one, it suggests one of yours: what you actually played that month, out of your own library. Never the biggest hit of that year. A chart cannot tell you what was on in the car.</p></div>
+
+  <div class="prose sec"><h2>The app decides, you stay in charge</h2><p>June makes a lot of calls for you. It groups your days, quietly sets aside the receipts and screenshots that are not memories, brings back a photo from five years ago on its anniversary, and offers a song for a collection. Finding the right amount of confidence for all of that took real editing.</p><p>An early version applied songs automatically: if you had pinned one near that place before, it just put it there. It was clever and it was wrong. It answered a question nobody had asked, and undoing it cost more than doing it by hand would have. Now the picker offers it and you tap. The intelligence stayed, the presumption went.</p><p>The same rule holds everywhere else. An entry has no color until you pick a feeling, because guessing someone's mood from their camera roll is not a guess an app should make. Telling June you are not interested in a suggested song teaches June only, it never touches your music library. And deleting is a queue rather than a dialog: photos gather as you go, undo takes them back one at a time, and nothing actually leaves until you say so.</p></div>
+
+  <div class="prose sec"><h2>Speed is part of the feeling</h2><p>Most apps put friction between you and what you meant to do. June responds instantly, confirms with a haptic, and keeps undo within reach. Organizing an afternoon of photos becomes one continuous motion instead of forty confirmation dialogs.</p><p>An app asks "Are you sure?". June assumes you probably are, and gives you undo if you were not.</p><p>Waiting got the same treatment. A photo app spends its life waiting on iCloud, on disk, on the decoder, and most apps show you that as a grey box. In June a photo that has not arrived yet appears as a soft blurred version of itself and then sharpens, so the page is never empty and never lies about what is coming. I tried a frosted panel over the image first. It looked more finished and it read as a bug, because it covered the photo instead of previewing it. Behind all of it sits one rule I refuse to break: no black screens, ever.</p></div>
+
+  <div class="prose sec"><h2>The part I built and then took out</h2><p>June used to tune its own loading. It measured how fast your device and your connection actually were and adjusted how far ahead it read. It worked, and I retired it.</p><p>Once I read the numbers it had settled on, they were nearly the same across every device I tested. So I took its output, wrote those values in as constants, and deleted the machinery that produced them. Same speed, far less that can go wrong.</p><p>That is the trade I keep making on this project. A clever mechanism has to earn the complexity it costs, and often enough the honest version of the result is a smaller thing.</p></div>
 
   <div class="prose sec"><h2>Where it is now</h2><p>June is on TestFlight, with the App Store release in progress. <a href="https://www.icloud.com/photos/#/icloudlinks/035ScvQ-dedQKH7rCNcfXDFWA/0/">The demo video</a> shows it running.</p></div>
 

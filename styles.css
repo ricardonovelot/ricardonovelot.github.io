@@ -199,6 +199,55 @@ main.shell .prose { max-width: none; }
   line-height: 1.55;
 }
 
+/* ---------- lead media ----------
+   The case shows itself before it explains itself: a visual sits directly
+   under the headline, above the credits band. */
+main.shell > .lead-media {
+  margin-top: clamp(24px, 4vw, 38px);
+  margin-bottom: 0;
+}
+main.shell > .diagram.lead-media { max-width: none; }
+/* The lead trio is a grid, not the flex row: fixed phone widths overflow the
+   column and wrap to a second line. Proportional columns always fit. */
+.phonerow.trio.lead-media {
+  display: grid;
+  grid-template-columns: 250fr 320fr 250fr;
+  align-items: center;
+  gap: clamp(14px, 2.4vw, 30px);
+}
+.phonerow.trio.lead-media figure.phone,
+.phonerow.trio.lead-media figure.phone.lead { width: 100%; }
+@media (max-width: 700px) {
+  /* hand back to the swipeable strip */
+  .phonerow.trio.lead-media { grid-template-columns: none; }
+  /* Stacked, a three shot lead is two and a half screens tall before a
+     single word. Same swipeable strip as the phone trio. */
+  .mediarow.lead-media {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 64%;
+    justify-content: start;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-inline: clamp(20px, 5vw, 48px);
+    margin-inline: calc(-1 * clamp(20px, 5vw, 48px));
+  }
+  .mediarow.lead-media::-webkit-scrollbar { display: none; }
+  .mediarow.lead-media figure.media {
+    scroll-snap-align: center;
+    aspect-ratio: 9 / 19;
+  }
+}
+.lead-media + .cap-line {
+  margin-top: 14px;
+  margin-bottom: 0;
+  text-align: center;
+}
+.phonerow.lead-media + .cap-line { margin-top: 4px; }
+
 .meta {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
